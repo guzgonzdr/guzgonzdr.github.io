@@ -1,0 +1,263 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+  color: #222;
+  background: #fdfdfd;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+header.transparent {
+  background: transparent;
+}
+
+header.solid {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+/* Nav container */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Logo in header */
+.logo {
+  height: 48px; /* elegant size */
+  transition: all 0.3s ease;
+  filter: brightness(0) invert(1); /* visible over hero background */
+}
+
+header.solid .logo {
+  height: 38px; /* slightly smaller when scrolling */
+  filter: none; /* use original logo colors */
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Nav links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+header.solid nav a {
+  color: #222;
+}
+
+nav a:hover {
+  color: #a36c2c; /* coffee accent */
+}
+
+/* Hero Section */
+.hero {
+  background: url("../Assets/bg.png") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo {
+  height: 140px;
+  margin-bottom: 2rem;
+  opacity: 1;
+  filter: brightness(0) invert(1); /* makes it white */
+  transition: transform 0.4s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.08);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  background: #a36c2c;      /* coffee accent */
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #7a4e1f;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Sections */
+.section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.section.alt {
+  background: #f5f5f5;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Community */
+.community-img {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 2rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #222;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .logo {
+    height: 42px;
+  }
+
+  header.solid .logo {
+    height: 34px;
+  }
+
+  .hero-logo {
+    height: 100px;
+    margin-bottom: 1.2rem;
+  }
+}
